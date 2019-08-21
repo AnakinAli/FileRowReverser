@@ -1,0 +1,14 @@
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\bin\Debug\FileRowReverser.exe.config
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\bin\Debug\FileRowReverser.exe
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\bin\Debug\FileRowReverser.pdb
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.csprojAssemblyReference.cache
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.csproj.CoreCompileInputs.cache
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.exe
+C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.pdb
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\bin\Debug\FileRowReverser.exe.config
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\bin\Debug\FileRowReverser.exe
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\bin\Debug\FileRowReverser.pdb
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.csprojAssemblyReference.cache
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.csproj.CoreCompileInputs.cache
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.exe
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\FileRowReverser\obj\Debug\FileRowReverser.pdb
