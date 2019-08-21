@@ -20,6 +20,7 @@ namespace FileRowReverser
             {
                 File.Delete(@"..\Out.txt");
             }
+
             Console.Write("Enter the file's name, but you should move it into the bin folder first: ");
 
             string file = @"..\" + Console.ReadLine();
@@ -31,7 +32,8 @@ namespace FileRowReverser
             using (reader)
             {
                 string line = "";
-                int row = 1;
+                int row = 0;
+                int maxListCount = 2000000;
 
                 while ((line = reader.ReadLine()) != null)
                 {
@@ -40,7 +42,7 @@ namespace FileRowReverser
                            .Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries)
                            .Reverse());
 
-                    if (row == 2000000)
+                    if (row == maxListCount)
                     {
                         lines.Reverse();
                         File.AppendAllLines(@"..\Out.txt", lines);
