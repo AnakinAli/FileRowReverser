@@ -16,6 +16,8 @@ namespace FileRowReverser
 
         static void Main(string[] args)
         {
+            //1000000 Sales Records.csv
+            //~7.60
             if (File.Exists(@"..\Out.txt"))
             {
                 File.Delete(@"..\Out.txt");
@@ -25,80 +27,18 @@ namespace FileRowReverser
 
             string file = @"..\" + Console.ReadLine();
 
-            StreamReader reader = new StreamReader(file, Encoding.GetEncoding("UTF-8"));
+            var reader = File
+                .ReadAllLines(file)
+                .Reverse();
 
-            List<string> lines = new List<string>();//max capacity ~<=200 000 000
-
-            using (reader)
+            using (StreamWriter writer = new StreamWriter(@"..\Out.txt", false, Encoding.GetEncoding("UTF-8")))
             {
-                string line = "";
-                int row = 0;
-                int maxListCount = 2000000;
-
-                while ((line = reader.ReadLine()) != null)
+                foreach (var line in reader)
                 {
-                    string newLine = string
-                           .Join(" ", line
-                           .Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries)
-                           .Reverse());
-
-                    if (row == maxListCount)
-                    {
-                        lines.Reverse();
-                        File.AppendAllLines(@"..\Out.txt", lines);
-                        lines.Clear();
-                        row = 0;
-                    }
-
-                    lines.Add(newLine);
-                    row++;
+                    string reversedLine = String.Join(" ", line.Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries).Reverse());
+                    writer.WriteLine(reversedLine);
                 }
             }
-            lines.Reverse();
-            File.AppendAllLines(@"..\Out.txt", lines);
         }
     }
 }
-//1000000 Sales Records.csv
-//9.04 sec
-/*    Console.Write("Enter the file's name, but you should move it into the bin folder first: ");
-
-string file = @"..\Output.csv";
-
-var lines = File
-     .ReadAllLines(file)
-     .Select(l =>
-         String.Join(" ",
-         l
-         .Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries)
-         .Reverse())
-      )
-     .ToList();
-lines.Reverse();
-  Console.WriteLine(String.Join(" ",lines));*/
-
-//1+ min 
-/* Console.Write("Enter the file's name, but you should move it into the bin folder first: ");
-
- string file = @"..\" + Console.ReadLine();
-
- var lines = new List<string>();
-
- using (TextFieldParser parser = new TextFieldParser(file))
- {
-     parser.Delimiters = new string[] { ",", "^", "|", ";", "    " };
-
-     var parts = parser.ReadFields().ToList();
-
-     while (parts != null)
-     {
-         parts.Reverse();
-         lines.Add(String.Join(" ", parts));
-         parts = parser.ReadFields().ToList();
-     }
- }
-
- lines.Reverse();
-
- File.WriteAllLines(@"..\Output.txt", lines);
- Console.WriteLine("Operation ended");*/
