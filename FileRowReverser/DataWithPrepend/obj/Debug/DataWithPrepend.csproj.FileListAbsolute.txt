@@ -1,0 +1,7 @@
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\bin\Debug\DataWithPrepend.exe.config
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\bin\Debug\DataWithPrepend.exe
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\bin\Debug\DataWithPrepend.pdb
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\obj\Debug\DataWithPrepend.csprojAssemblyReference.cache
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\obj\Debug\DataWithPrepend.csproj.CoreCompileInputs.cache
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\obj\Debug\DataWithPrepend.exe
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\DataWithPrepend\obj\Debug\DataWithPrepend.pdb
