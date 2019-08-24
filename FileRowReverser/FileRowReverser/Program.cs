@@ -26,7 +26,7 @@ namespace FileRowReverser
             Console.Write("Enter the file's name, but you should move it into the bin folder first: ");
 
             string file = @"..\" + Console.ReadLine();
-
+            
             var reader = File
                 .ReadAllLines(file)
                 .Reverse();

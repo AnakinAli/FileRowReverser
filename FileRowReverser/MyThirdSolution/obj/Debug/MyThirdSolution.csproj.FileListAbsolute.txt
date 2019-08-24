@@ -1,0 +1,7 @@
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\bin\Debug\MyThirdSolution.exe.config
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\bin\Debug\MyThirdSolution.exe
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\bin\Debug\MyThirdSolution.pdb
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\obj\Debug\MyThirdSolution.csprojAssemblyReference.cache
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\obj\Debug\MyThirdSolution.csproj.CoreCompileInputs.cache
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\obj\Debug\MyThirdSolution.exe
+C:\Users\anaki\Desktop\FileRowReverser\FileRowReverser\MyThirdSolution\obj\Debug\MyThirdSolution.pdb

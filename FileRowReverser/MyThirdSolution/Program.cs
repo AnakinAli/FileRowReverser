@@ -24,7 +24,6 @@ namespace MyThirdSolution
                 int row = 0;
                 int maxListCount = 2000000;
 
-
                 while ((line = reader.ReadLine()) != null)
                 {
                     string newLine = string
@@ -32,16 +31,14 @@ namespace MyThirdSolution
                            .Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries)
                            .Reverse());
 
-                    if (row == maxListCount)
+                    if (row++ == maxListCount)
                     {
                         lines.Reverse();
                         File.AppendAllLines(@"..\Out.txt", lines);
                         lines.Clear();
                         row = 0;
                     }
-
                     lines.Add(newLine);
-                    row++;
                 }
             }
             lines.Reverse();
