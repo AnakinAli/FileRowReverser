@@ -11,6 +11,7 @@ namespace MyThirdSolution
     {
         static void Main(string[] args)
         {
+            string outputFile = @"..\Out.txt";
             Console.Write("Enter the file's name, but you should move it into the bin folder first: ");
 
             string file = @"..\" + Console.ReadLine();
@@ -20,29 +21,31 @@ namespace MyThirdSolution
 
             using (reader)
             {
+                
                 string line = "";
-                int row = 0;
-                int maxListCount = 2000000;
 
                 while ((line = reader.ReadLine()) != null)
                 {
+                    double usedMemory = (double.Parse((new Microsoft.VisualBasic.Devices.ComputerInfo().AvailableVirtualMemory / Math.Pow(1024d, 3)).ToString("0.00")));
+                    double totalMemory = (double.Parse((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / Math.Pow(1024d, 3)).ToString("0.00")));
+                    var percentOfFreeRam = (usedMemory * 100) / totalMemory;
+
                     string newLine = string
                            .Join(" ", line
                            .Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries)
                            .Reverse());
 
-                    if (row++ == maxListCount)
+                    if (percentOfFreeRam <= 25)
                     {
                         lines.Reverse();
-                        File.AppendAllLines(@"..\Out.txt", lines);
+                        File.AppendAllLines(outputFile, lines);
                         lines.Clear();
-                        row = 0;
                     }
                     lines.Add(newLine);
                 }
             }
             lines.Reverse();
-            File.AppendAllLines(@"..\Out.txt", lines);
+            File.AppendAllLines(outputFile, lines);
         }
     }
 }
