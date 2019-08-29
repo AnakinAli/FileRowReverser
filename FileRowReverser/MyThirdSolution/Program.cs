@@ -3,49 +3,72 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-
 namespace MyThirdSolution
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string outputFile = @"..\Out.txt";
-            Console.Write("Enter the file's name, but you should move it into the bin folder first: ");
+            Console.WriteLine("Wait 2 sec");
+            Thread.Sleep(2000);
+            Console.WriteLine("Started");
+            Console.Clear();
+            Console.WriteLine(DateTime.Now);
 
-            string file = @"..\" + Console.ReadLine();
-            StreamReader reader = new StreamReader(file, Encoding.GetEncoding("UTF-8"));
+            string file = @"C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\bin\Output.csv";
+            //  string file = @"C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\bin\1000000 Sales Records.csv";
 
-            List<string> lines = new List<string>(); //max capacity ~<=200 000 000
 
-            using (reader)
+            string outputFile = @"..\Output.txt";
+
+            if (File.Exists(outputFile)) File.Delete(outputFile);
+
+            try
             {
-                
-                string line = "";
+                var lines = new Stack<string>();
 
-                while ((line = reader.ReadLine()) != null)
+                using (var writer = new StreamWriter(outputFile))
                 {
-                    double usedMemory = (double.Parse((new Microsoft.VisualBasic.Devices.ComputerInfo().AvailableVirtualMemory / Math.Pow(1024d, 3)).ToString("0.00")));
-                    double totalMemory = (double.Parse((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / Math.Pow(1024d, 3)).ToString("0.00")));
-                    var percentOfFreeRam = (usedMemory * 100) / totalMemory;
-
-                    string newLine = string
-                           .Join(" ", line
-                           .Split(new string[] { ",", "^", "|", ";", "    " }, StringSplitOptions.RemoveEmptyEntries)
-                           .Reverse());
-
-                    if (percentOfFreeRam <= 25)
+                    using (var reader = new StreamReader(file))
                     {
-                        lines.Reverse();
-                        File.AppendAllLines(outputFile, lines);
-                        lines.Clear();
+                        string line = "";
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+
+                            double usedMemory = (double.Parse((new Microsoft.VisualBasic.Devices.ComputerInfo().AvailableVirtualMemory / Math.Pow(1024d, 3)).ToString("0.0")));
+                            double totalMemory = (double.Parse((new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory / Math.Pow(1024d, 3)).ToString("0.0")));
+                            int percentOfFreeRam = (int)Math.Round((usedMemory * 100) / totalMemory);
+
+                            if (percentOfFreeRam <= 46)
+                            {
+                                while (lines.Count >= 1)
+                                {
+                                    writer.WriteLine(lines.Pop());
+                                }
+                            }
+
+                            lines.Push(line);
+                        }
+                        
+                        while (lines.Count >= 1)
+                        {
+                            writer.WriteLine(lines.Pop());
+                        }
                     }
-                    lines.Add(newLine);
                 }
             }
-            lines.Reverse();
-            File.AppendAllLines(outputFile, lines);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine(DateTime.Now);
+                Console.Beep(30000, 1000);
+            }
         }
     }
 }
