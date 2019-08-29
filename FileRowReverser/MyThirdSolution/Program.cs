@@ -23,7 +23,7 @@ namespace MyThirdSolution
 
             string outputFile = @"..\Output.txt";
 
-            if (File.Exists(outputFile)) File.Delete(outputFile);
+            //if (File.Exists(outputFile)) File.Delete(outputFile);
 
             try
             {
@@ -67,7 +67,7 @@ namespace MyThirdSolution
             finally
             {
                 Console.WriteLine(DateTime.Now);
-                Console.Beep(30000, 1000);
+                //Console.Beep(30000, 1000);
             }
         }
     }
