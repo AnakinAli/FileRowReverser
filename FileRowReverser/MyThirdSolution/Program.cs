@@ -29,7 +29,6 @@ namespace MyThirdSolution
             Console.Clear();
 
             Console.WriteLine(DateTime.Now);
-
             ThirdSolution(file);
             Console.WriteLine(DateTime.Now);
         }
