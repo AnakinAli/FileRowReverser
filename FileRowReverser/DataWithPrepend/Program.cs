@@ -11,14 +11,22 @@ namespace DataWithPrepend
     {
         static void Main(string[] args)
         {
-            //1000000 Sales Records.csv
-            string lines = String.Join("\n", File
-                .ReadAllText(@"..\1000000 Sales Records.csv")
-                .Split(new char[] { '\n'})
-                .Select(l=>String.Join(" ",l.Split(',').Reverse()))
-                .Reverse());
+            string file = @"C:\Users\anaki\source\repos\FileRowReverser\FileRowReverser\bin\1000000 Sales Records.csv";
 
-            File.WriteAllText(@"..\Output.txt", lines);
+            //1000000 Sales Records.csv
+
+            Console.WriteLine(DateTime.Now);
+            var lines = File
+                .ReadLines(file)
+                .Select(l => String.Join(" ", l.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries).Reverse()))
+                .Reverse();
+            
+            for (int i = 0; i < 87; i++)
+            {
+                File.AppendAllLines(@"..\Output.txt", lines);
+            }
+
+            Console.WriteLine(DateTime.Now);
         }
     }
 }
